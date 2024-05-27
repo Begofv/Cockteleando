@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { BuscarNombre } from './api'
+import { BuscarNombre, BuscarLetra, Random } from './api'
 
 function App() {
   return (
@@ -27,9 +27,9 @@ function Navbar() {
       </div>
       <div>
         <form>
-          <input type='radio' value="Lleva alcohol" name="alcohol" /> Lleva Alcohol
-          <input type='radio' value="No leva alcohol" name="alcohol" /> No lleva Alcohol
-          <input type='radio' value="Todo" name="alcohol" /> Todo
+          <input type='radio' value="alcoholil" name="alcohol" /> Lleva Alcohol
+          <input type='radio' value="non-alcoholic" name="alcohol" /> No lleva Alcohol
+          <input type='radio' value="" name="alcohol" /> Todos
         </form>
       </div>   
     <input id="buttonFind" type="submit" value="Send Request" />
@@ -44,38 +44,38 @@ function BusquedaLetra() {
       <h3>
         Busqueda de cocktail por letra
       </h3>
-      <a href="">A</a>
-      <a href="">B</a>
-      <a href="">C</a>
-      <a href="">D</a>
-      <a href="">E</a>
-      <a href="">F</a>
-      <a href="">G</a>
-      <a href="">H</a>
-      <a href="">I</a>
-      <a href="">J</a>
-      <a href="">K</a>
-      <a href="">L</a>
-      <a href="">M</a>
-      <a href="">N</a>
-      <a href="">O</a>
-      <a href="">P</a>
-      <a href="">Q</a>
-      <a href="">R</a>
-      <a href="">S</a>
-      <a href="">T</a>
-      <a href="">U</a>
-      <a href="">V</a>
-      <a href="">W</a>
-      <a href="">X</a>
-      <a href="">Y</a>
-      <a href="">Z</a>
+      <a href=""> A </a>/
+      <a href=""> B </a>/
+      <a href=""> C </a>/
+      <a href=""> D </a>/
+      <a href=""> E </a>/
+      <a href=""> F </a>/
+      <a href=""> G </a>/
+      <a href=""> H </a>/
+      <a href=""> I </a>/
+      <a href=""> J </a>/
+      <a href=""> K </a>/
+      <a href=""> L </a>/
+      <a href=""> M </a>/
+      <a href=""> N </a>/
+      <a href=""> O </a>/
+      <a href=""> P </a>/
+      <a href=""> Q </a>/
+      <a href=""> R </a>/
+      <a href=""> S </a>/
+      <a href=""> T </a>/
+      <a href=""> U </a>/
+      <a href=""> V </a>/
+      <a href=""> W </a>/
+      <a href=""> X </a>/
+      <a href=""> Y </a>/
+      <a href=""> Z </a>
     </div>
   )
 }
 
 
-function Random() {
+function Random_f() {
   return (
     <div>
       <img src="" />Estoy Aqui!!
@@ -89,5 +89,5 @@ export {
   App,
   Navbar,
   BusquedaLetra,
-  Random
+  Random_f
 } 

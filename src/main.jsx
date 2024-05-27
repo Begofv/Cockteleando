@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {App, Navbar, BusquedaLetra, Random} from './App.jsx'
+import {App, Navbar, BusquedaLetra, Random_f} from './App.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -8,6 +8,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
     <Navbar />
     <BusquedaLetra />
-    <Random />
+    <Random_f />
   </React.StrictMode>,
 )
