@@ -3,33 +3,91 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BuscarNombre } from './api'
 
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <h1>Cockteleando</h1>
   )
 }
 
-export default App
+
+function Navbar() {
+  return (
+    <div>
+      <div>
+        <p>Nombre de cocktail</p>
+        <input type='text' placeholder='Nombre'></input>
+      </div>
+      <div>
+        <p>Busqueda por ingrediente</p>
+        <select>
+          <option>Opcion 1</option>
+        </select>
+      </div>
+      <div>
+        <form>
+          <input type='radio' value="Lleva alcohol" name="alcohol" /> Lleva Alcohol
+          <input type='radio' value="No leva alcohol" name="alcohol" /> No lleva Alcohol
+          <input type='radio' value="Todo" name="alcohol" /> Todo
+        </form>
+      </div>   
+    <input id="buttonFind" type="submit" value="Send Request" />
+    </div>
+  )
+}
+
+
+function BusquedaLetra() {
+  return (
+    <div>
+      <h3>
+        Busqueda de cocktail por letra
+      </h3>
+      <a href="">A</a>
+      <a href="">B</a>
+      <a href="">C</a>
+      <a href="">D</a>
+      <a href="">E</a>
+      <a href="">F</a>
+      <a href="">G</a>
+      <a href="">H</a>
+      <a href="">I</a>
+      <a href="">J</a>
+      <a href="">K</a>
+      <a href="">L</a>
+      <a href="">M</a>
+      <a href="">N</a>
+      <a href="">O</a>
+      <a href="">P</a>
+      <a href="">Q</a>
+      <a href="">R</a>
+      <a href="">S</a>
+      <a href="">T</a>
+      <a href="">U</a>
+      <a href="">V</a>
+      <a href="">W</a>
+      <a href="">X</a>
+      <a href="">Y</a>
+      <a href="">Z</a>
+    </div>
+  )
+}
+
+
+function Random() {
+  return (
+    <div>
+      <img src="" />Estoy Aqui!!
+    </div>
+  )
+}
+
+
+
+export {
+  App,
+  Navbar,
+  BusquedaLetra,
+  Random
+} 
