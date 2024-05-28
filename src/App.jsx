@@ -13,29 +13,63 @@ function App() {
 
 
 function Navbar() {
+  let resultID = []
+
+  async function buttonOnsubmitHandler(e) {
+    e.preventDefault()
+    let nombre = e.target[0].value;
+    let result = await BuscarNombre(nombre)
+
+    resultID = [];
+    for (let i = 0; result.drinks.length > i; i++) {
+      resultID.push(result.drinks[i].idDrink)
+    }
+    
+    await parrafoID(resultID)
+  }
+
+  function Parrafoid(resultadoID) {
+    return (
+      <div>
+        <p>{resultadoID[0]}</p>
+      </div>    
+      )
+  }
+
+  
+
   return (
     <div>
-      <div>
-        <p>Nombre de cocktail</p>
-        <input type='text' placeholder='Nombre'></input>
-      </div>
-      <div>
-        <p>Busqueda por ingrediente</p>
-        <select>
-          <option>Opcion 1</option>
-        </select>
-      </div>
-      <div>
-        <form>
-          <input type='radio' value="alcoholil" name="alcohol" /> Lleva Alcohol
-          <input type='radio' value="non-alcoholic" name="alcohol" /> No lleva Alcohol
-          <input type='radio' value="" name="alcohol" /> Todos
-        </form>
-      </div>   
-    <input id="buttonFind" type="submit" value="Send Request" />
+      <form onSubmit={buttonOnsubmitHandler}>
+        <div>
+          <label htmlFor="nombre">Nombre de cocktail </label>
+          <input type='text' placeholder='Nombre' name='nombre' />
+        </div>
+        <br />
+        <div>
+          <label htmlFor="ingrediente">Busqueda por ingrediente </label>
+          <select>
+            <option name='ingrediente'>Opcion 1</option>
+          </select>
+        </div>
+        <br />
+        <div>
+            <input type='radio' value="alcoholil" name="alcohol" /> Lleva Alcohol
+            <br />
+            <input type='radio' value="non-alcoholic" name="alcohol" /> No lleva Alcohol
+            <br />
+            <input type='radio' value="" name="alcohol" /> Todos
+          <br />
+        </div>   
+        <div>
+          <input id="buttonFind" type="submit" value="Send Request" />
+        </div>
+      </form>
+      <Parrafoid />
     </div>
   )
 }
+
 
 
 function BusquedaLetra() {
@@ -76,9 +110,19 @@ function BusquedaLetra() {
 
 
 function Random_f() {
+  const [imagen, setImagen] = useState('')
+
+  async function cocktailRandom() {
+    const datoRandom = await Random();
+    const image = datoRandom['drinks'][0]['strDrinkThumb']
+    setImagen(image)
+  }
+
+  cocktailRandom()
+
   return (
     <div>
-      <img src="" />Estoy Aqui!!
+      <img src={imagen} />
     </div>
   )
 }

@@ -9,5 +9,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Navbar />
     <BusquedaLetra />
     <Random_f />
+    <Random_f />
+    <Random_f />
+    <Random_f />
+    <Random_f />
   </React.StrictMode>,
 )
