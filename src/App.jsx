@@ -13,30 +13,16 @@ function App() {
 
 
 function Navbar() {
-  let resultID = []
+  const [bebida, setBebida] = useState('')
+  const [img, setImg] = useState('')
 
   async function buttonOnsubmitHandler(e) {
     e.preventDefault()
     let nombre = e.target[0].value;
     let result = await BuscarNombre(nombre)
-
-    resultID = [];
-    for (let i = 0; result.drinks.length > i; i++) {
-      resultID.push(result.drinks[i].idDrink)
-    }
-    
-    await parrafoID(resultID)
-  }
-
-  function Parrafoid(resultadoID) {
-    return (
-      <div>
-        <p>{resultadoID[0]}</p>
-      </div>    
-      )
-  }
-
-  
+    setBebida(result['drinks'][0]['strInstructions'])
+    setImg(result['drinks'][0]['strDrinkThumb'])
+  } 
 
   return (
     <div>
@@ -65,7 +51,8 @@ function Navbar() {
           <input id="buttonFind" type="submit" value="Send Request" />
         </div>
       </form>
-      <Parrafoid />
+      <img src={img} />
+      <p>{bebida}</p>
     </div>
   )
 }
@@ -111,11 +98,15 @@ function BusquedaLetra() {
 
 function Random_f() {
   const [imagen, setImagen] = useState('')
+  const [datos, setDatos] = useState('')
 
   async function cocktailRandom() {
     const datoRandom = await Random();
     const image = datoRandom['drinks'][0]['strDrinkThumb']
-    setImagen(image)
+    //setImagen(image)
+
+    const preparacion = datoRandom['drinks'][0]['strInstructions']
+    //setDatos(preparacion)
   }
 
   cocktailRandom()
@@ -123,6 +114,7 @@ function Random_f() {
   return (
     <div>
       <img src={imagen} />
+      <p>{datos}</p>
     </div>
   )
 }
