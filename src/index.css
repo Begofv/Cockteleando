@@ -28,11 +28,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #010302;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color:#ffdb9d;
 }
 
 button {
@@ -65,4 +67,23 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/*half image*/
+.izquierda{
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.derecha{
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.izquierda > img {
+  width: 50%;
 }
