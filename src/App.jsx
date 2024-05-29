@@ -101,18 +101,25 @@ function BusquedaIngrediente() {
 
 function BusquedaLetra() {
   const [listado, setListado] = useState('')
+  const [letraS, setLetraS] = useState('')
 
   let listItems;
   async function linkLetter(e) {
     let letra = e.target.attributes[0].nodeValue
-    let bebidaLetter = await BuscarLetra(letra)
-    bebidaLetter = bebidaLetter.drinks
 
-    listItems = bebidaLetter.map((number) =>
-      <li key={number.strDrink}>{number.strDrink}</li>
-    )
+    if (letra == letraS) {
+      setListado('')
+    } else {
+      setLetraS(letra)
+      let bebidaLetter = await BuscarLetra(letra)
+      bebidaLetter = bebidaLetter.drinks
 
-    setListado(listItems)
+      listItems = bebidaLetter.map((number) =>
+        <li key={number.strDrink}>{number.strDrink}</li>
+      )
+
+      setListado(listItems)
+    }
   }
 
 
