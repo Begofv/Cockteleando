@@ -19,6 +19,13 @@ async function Ingredientes() {
 }
 
 
+async function BuscarIngrediente(ingredient) {
+    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ingredient);
+    const bebidas = await response.json();
+    return (bebidas)
+}
+
+
 async function Random() {
     const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
     const bebidas = await response.json();
@@ -31,5 +38,6 @@ export {
     BuscarNombre,
     BuscarLetra,
     Ingredientes,
+    BuscarIngrediente,
     Random
 }

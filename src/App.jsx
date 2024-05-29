@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { BuscarNombre, BuscarLetra, Random, Ingredientes } from './api'
+import { BuscarNombre, BuscarLetra, Random, Ingredientes, BuscarIngrediente } from './api'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 }
 
 
-function Navbar() {
+function BusquedaNombre() {
   const [bebida, setBebida] = useState('')
   const [img, setImg] = useState('')
 
@@ -25,32 +25,12 @@ function Navbar() {
   } 
 
 
-  ingredientesList()
-  async function ingredientesList(e) {
-    let listado = await Ingredientes()
-    listado = await listado['drinks']
-    let unidad = []
-
-    for (let i = 0; await listado.length > i; i++) {
-      await unidad.push(listado[i]['strIngredient1'])
-    }
-    return unidad
-  }
-
-
   return (
     <div>
       <form onSubmit={buttonOnsubmitHandler}>
         <div>
           <label htmlFor="nombre">Nombre de cocktail </label>
           <input type='text' placeholder='Nombre' name='nombre' />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="ingrediente">Busqueda por ingrediente </label>
-          <select>
-            {}
-          </select>
         </div>
         <br />  
         <div>
@@ -59,6 +39,59 @@ function Navbar() {
       </form>
       <img src={img} />
       <p>{bebida}</p>
+    </div>
+  )
+}
+
+
+
+function BusquedaIngrediente() {
+  const [list, setList] = useState('')
+  const [ingredientFin, setIngredientFin] = useState('')
+
+  let listIngredients;
+  let seleccion;
+  let listIngredientFind;
+
+  async function onclick(e) {
+    seleccion = await e
+    seleccion = await seleccion.target.innerText
+    let ingredientFind = await BuscarIngrediente(seleccion)
+    ingredientFind = await ingredientFind.drinks
+
+    listIngredientFind = await ingredientFind.map((number) =>
+      <li key={number.strDrink}>{number.strDrink}</li>
+    )
+    await setIngredientFin(listIngredientFind)
+  }
+
+
+  ingredientAll()
+  async function ingredientAll() {
+    let all = await Ingredientes()
+    all = all.drinks
+    listIngredients = await all.map((number) =>
+      <option key={number.strIngredient1} value={number.strIngredient1}>{number.strIngredient1}</option>
+    )
+    await setList(listIngredients)
+  }
+
+
+  return (
+    <div>
+      <div>
+        <h3>Busqueda por ingrediente</h3>
+        <select name="ingrediente" id="ingrediente" onClick={onclick}>
+          <option value="" selected>Seleccione un ingrediente</option>
+          {list}
+        </select>
+      </div>
+      <div>
+        <h4>Listado de bebidas por ingrediente</h4>
+        <ul>
+          {ingredientFin}
+        </ul>
+      </div>
     </div>
   )
 }
@@ -120,7 +153,8 @@ function BusquedaLetra() {
           {listado}
         </ul>
       </div>
-    </div>  )
+    </div>  
+    )
 }
 
 
@@ -152,7 +186,8 @@ function Random_f() {
 
 export {
   App,
-  Navbar,
+  BusquedaNombre,
+  BusquedaIngrediente,
   BusquedaLetra,
   Random_f
 } 
