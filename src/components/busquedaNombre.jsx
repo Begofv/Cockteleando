@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../App.css'
-import Modal from '../components/modal'
+import './modal.css'
+import Modal from './modal'
+import { Modales } from './modales'
 
 import { BuscarNombre } from '../api'
 
@@ -15,6 +17,12 @@ function BusquedaNombre() {
       setBebida(result['drinks'][0]['strInstructions'])
       setImg(result['drinks'][0]['strDrinkThumb'])
     } 
+
+
+  function buttonDelete() {
+    setBebida('')
+    setImg('')
+  }
   
   
     return (
@@ -26,9 +34,12 @@ function BusquedaNombre() {
           </div>
           <br />  
           <div>
-            <input id="buttonFind" type="submit" value="Send Request" />
+            <input id="buttonFind" type="submit" value="Buscar" />
           </div>
         </form>
+        <input id="buttonDelete" type='button' value="Borrar" onClick={buttonDelete} />
+        <br />
+        <br />
         <img src={img} />
         <p>{bebida}</p>
       </div>

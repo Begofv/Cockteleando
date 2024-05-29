@@ -16,13 +16,18 @@ function BusquedaIngrediente() {
     async function onclick(e) {
       seleccion = await e
       seleccion = await seleccion.target.innerText
-      let ingredientFind = await BuscarIngrediente(seleccion)
-      ingredientFind = await ingredientFind.drinks
-  
-      listIngredientFind = await ingredientFind.map((number) =>
-        <li key={number.strDrink}>{number.strDrink}</li>
-      )
-      await setIngredientFin(listIngredientFind)
+
+      if (seleccion === 'Seleccione un ingrediente' || seleccion == '') {
+        setIngredientFin('')
+      } else {
+        let ingredientFind = await BuscarIngrediente(seleccion)
+        ingredientFind = await ingredientFind.drinks
+    
+        listIngredientFind = await ingredientFind.map((number) =>
+          <li key={number.strDrink}>{number.strDrink}</li>
+        )
+        await setIngredientFin(listIngredientFind)
+      }
     }
   
   
@@ -46,7 +51,6 @@ function BusquedaIngrediente() {
             </select>
           </div>
           <div>
-            <h4>Listado de bebidas por ingrediente</h4>
             <ul>
               {ingredientFin}
             </ul>

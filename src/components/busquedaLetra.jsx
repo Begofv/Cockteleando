@@ -62,7 +62,6 @@ function BusquedaLetra() {
         <a onClick={linkLetter} value='Z'> Z </a>
         <br />
         <div>
-          <h4>Listado por letra</h4>
           <ul>
             {listado}
           </ul>
