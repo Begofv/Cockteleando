@@ -26,17 +26,10 @@ async function Random() {
 }
 
 
-async function Alcohol(alcohol) {
-    const response = await fetch("www.thecocktaildb.com/api/json/v1/1/filter.php?a="+alcohol);
-    const bebidas = await response.json();
-    return (bebidas)
-}
-
 
 export {
     BuscarNombre,
     BuscarLetra,
     Ingredientes,
-    Alcohol,
     Random
 }

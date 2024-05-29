@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { BuscarNombre, BuscarLetra, Random } from './api'
+import { BuscarNombre, BuscarLetra, Random, Ingredientes } from './api'
 
 function App() {
   return (
@@ -24,6 +24,20 @@ function Navbar() {
     setImg(result['drinks'][0]['strDrinkThumb'])
   } 
 
+
+  ingredientesList()
+  async function ingredientesList(e) {
+    let listado = await Ingredientes()
+    listado = await listado['drinks']
+    let unidad = []
+
+    for (let i = 0; await listado.length > i; i++) {
+      await unidad.push(listado[i]['strIngredient1'])
+    }
+    return unidad
+  }
+
+
   return (
     <div>
       <form onSubmit={buttonOnsubmitHandler}>
@@ -35,18 +49,10 @@ function Navbar() {
         <div>
           <label htmlFor="ingrediente">Busqueda por ingrediente </label>
           <select>
-            <option name='ingrediente'>Opcion 1</option>
+            {}
           </select>
         </div>
-        <br />
-        <div>
-            <input type='radio' value="alcoholil" name="alcohol" /> Lleva Alcohol
-            <br />
-            <input type='radio' value="non-alcoholic" name="alcohol" /> No lleva Alcohol
-            <br />
-            <input type='radio' value="" name="alcohol" /> Todos
-          <br />
-        </div>   
+        <br />  
         <div>
           <input id="buttonFind" type="submit" value="Send Request" />
         </div>
@@ -60,40 +66,63 @@ function Navbar() {
 
 
 function BusquedaLetra() {
+  const [listado, setListado] = useState('')
+
+  let listItems;
+  async function linkLetter(e) {
+    let letra = e.target.attributes[0].nodeValue
+    let bebidaLetter = await BuscarLetra(letra)
+    bebidaLetter = bebidaLetter.drinks
+
+    listItems = bebidaLetter.map((number) =>
+      <li key={number.strDrink}>{number.strDrink}</li>
+    )
+
+    setListado(listItems)
+  }
+
+
   return (
     <div>
       <h3>
         Busqueda de cocktail por letra
       </h3>
-      <a href=""> A </a>/
-      <a href=""> B </a>/
-      <a href=""> C </a>/
-      <a href=""> D </a>/
-      <a href=""> E </a>/
-      <a href=""> F </a>/
-      <a href=""> G </a>/
-      <a href=""> H </a>/
-      <a href=""> I </a>/
-      <a href=""> J </a>/
-      <a href=""> K </a>/
-      <a href=""> L </a>/
-      <a href=""> M </a>/
-      <a href=""> N </a>/
-      <a href=""> O </a>/
-      <a href=""> P </a>/
-      <a href=""> Q </a>/
-      <a href=""> R </a>/
-      <a href=""> S </a>/
-      <a href=""> T </a>/
-      <a href=""> U </a>/
-      <a href=""> V </a>/
-      <a href=""> W </a>/
-      <a href=""> X </a>/
-      <a href=""> Y </a>/
-      <a href=""> Z </a>
-    </div>
-  )
+      <a onClick={linkLetter} value='A'> A </a>/
+      <a onClick={linkLetter} value='B'> B </a>/
+      <a onClick={linkLetter} value='C'> C </a>/
+      <a onClick={linkLetter} value='D'> D </a>/
+      <a onClick={linkLetter} value='E'> E </a>/
+      <a onClick={linkLetter} value='F'> F </a>/
+      <a onClick={linkLetter} value='G'> G </a>/
+      <a onClick={linkLetter} value='H'> H </a>/
+      <a onClick={linkLetter} value='I'> I </a>/
+      <a onClick={linkLetter} value='J'> J </a>/
+      <a onClick={linkLetter} value='K'> K </a>/
+      <a onClick={linkLetter} value='L'> L </a>/
+      <a onClick={linkLetter} value='M'> M </a>/
+      <a onClick={linkLetter} value='N'> N </a>/
+      <a onClick={linkLetter} value='O'> O </a>/
+      <a onClick={linkLetter} value='P'> P </a>/
+      <a onClick={linkLetter} value='Q'> Q </a>/
+      <a onClick={linkLetter} value='R'> R </a>/
+      <a onClick={linkLetter} value='S'> S </a>/
+      <a onClick={linkLetter} value='T'> T </a>/
+      <a onClick={linkLetter} value='U'> U </a>/
+      <a onClick={linkLetter} value='V'> V </a>/
+      <a onClick={linkLetter} value='W'> W </a>/
+      <a onClick={linkLetter} value='X'> X </a>/
+      <a onClick={linkLetter} value='Y'> Y </a>/
+      <a onClick={linkLetter} value='Z'> Z </a>
+      <br />
+      <div>
+        <h4>Listado por letra</h4>
+        <ul>
+          {listado}
+        </ul>
+      </div>
+    </div>  )
 }
+
 
 
 function Random_f() {
