@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../App.css'
-import Modal from '../components/modal'
+import { Modales } from './modales'
 
 import {BuscarLetra} from '../api'
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../App.css'
 import Modal from '../components/modal'
 
-import { BuscarNombre, BuscarLetra, Random, Ingredientes, BuscarIngrediente } from '../api'
+import { BuscarNombre, BuscarLetra, Random } from '../api'
 
 
 function Random_f() {
