@@ -49,13 +49,12 @@ p{
   color:#ffdb9d;
 
 }
+
 a:link {
   color:#ffdb9d;
 }
-li{
-  color:#ffdb9d;
-}
-h4{
+
+li, h4{
   color:#ffdb9d;
 }
 
@@ -64,8 +63,24 @@ h4{
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-
 #imgNombre {
   height: 25rem;
-  margin: -15px 15px 35px 15px
+  margin: -15px 15px 35px 15px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+#div-letra {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+}
+
+.p-letra {
+  margin: 0;
+  cursor: pointer;
+}
+
+.a-letra {
+  cursor: pointer;
 }
