@@ -36,9 +36,12 @@ function BusquedaNombre() {
   }
 
 
-  function buttonDelete() {
+  function buttonDelete(e) {
+    e.preventDefault()
     setImg('')
     delIMG.innerHTML = '<img src="/imgs/drink-4188629_1280.jpg" alt="bebida" className="imgIndex" />'
+    let inputDel = document.getElementById('inputName')
+    inputDel.value = ''
   }
   
   
@@ -48,14 +51,14 @@ function BusquedaNombre() {
           <div>
             <h3>Nombre de cocktail</h3>
             <label htmlFor="nombre" />
-            <input type='text' placeholder='Nombre' name='nombre' />
+            <input id='inputName' type='text' placeholder='Nombre' name='nombre' />
           </div>
           <br />  
           <div>
-            <input id="buttonFind" type="submit" value="Buscar" />
+            <input id="buttonFind" className='buttonName' type="submit" value="Buscar" />
+            <input id="buttonDelete" className='buttonName' type='button' value="Borrar" onClick={buttonDelete} />
           </div>
         </form>
-        <input id="buttonDelete" type='button' value="Borrar" onClick={buttonDelete} />
         <br />
         <br />
         <div id='div-img'>

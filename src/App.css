@@ -84,3 +84,17 @@ li, h4{
 .a-letra {
   cursor: pointer;
 }
+
+#inputName {
+  text-align: center;
+  border-radius: 15px;
+  padding: 2px 10px;
+}
+
+.buttonName {
+  font-size: 1.15rem;
+  margin: 0 10px;
+  border-radius: 15px;
+  padding: 2px 15px;
+  cursor: pointer;
+}
