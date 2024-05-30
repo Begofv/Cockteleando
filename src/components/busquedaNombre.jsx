@@ -3,34 +3,37 @@ import '../App.css'
 import './modal.css'
 import Modal from './modal'
 import { Modales } from './modales'
-
 import { BuscarNombre } from '../api'
+import { CocktailCard } from './CocktailCard'
+
 
 function BusquedaNombre() {
-    const [img, setImg] = useState('')
-    let delIMG = document.getElementById('izquierda')
+  const [img, setImg] = useState('')
+  let delIMG = document.getElementById('izquierda')
 
-    let listImg;
+  let listImg;
   
-    async function buttonOnsubmitHandler(e) {
-      e.preventDefault()
-      
-      delIMG.innerHTML = ''
+  async function buttonOnsubmitHandler(e) {
+    e.preventDefault()
+    delIMG.innerHTML = ''
 
-      let nombre = e.target[0].value;
-      let result = await BuscarNombre(nombre)
-      result = await result.drinks
+    let nombre = e.target[0].value;
+    let result = await BuscarNombre(nombre)
+    result = await result.drinks
 
-      listImg = await result.map((data) =>
-        <div>
-          <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
-          <img id='imgNombre' src={data.strDrinkThumb} key={data.strDrinkThumb} />
-        </div>
-      )
+    listImg = await result.map((data) =>
+      <div>
+        <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
+        <img id='imgNombre' onClick={onclick} src={data.strDrinkThumb} key={data.strDrinkThumb} />
+      </div>
+    )
+    setImg(listImg)
+  } 
 
 
-      setImg(listImg)
-    } 
+  async function onclick() {
+    console.log('Click correcto')
+  }
 
 
   function buttonDelete() {
