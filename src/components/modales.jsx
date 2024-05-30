@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './components/modal.css'
+import './modal.css'
 import Modal from './modal'
 
 const Modales = ()=> {
@@ -17,4 +17,6 @@ const Modales = ()=> {
     )
 }
 
-export default Modales
+export {
+    Modales
+}
