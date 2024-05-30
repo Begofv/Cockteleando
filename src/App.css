@@ -58,3 +58,14 @@ li{
 h4{
   color:#ffdb9d;
 }
+
+#div-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+#imgNombre {
+  height: 25rem;
+  margin: -15px 15px 35px 15px
+}

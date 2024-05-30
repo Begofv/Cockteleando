@@ -8,19 +8,22 @@ import { BuscarNombre } from '../api'
 
 function BusquedaNombre() {
     const [img, setImg] = useState('')
+    let delIMG = document.getElementById('izquierda')
 
     let listImg;
-    let listName;
   
     async function buttonOnsubmitHandler(e) {
       e.preventDefault()
+      
+      delIMG.innerHTML = ''
+
       let nombre = e.target[0].value;
       let result = await BuscarNombre(nombre)
       result = await result.drinks
 
       listImg = await result.map((data) =>
         <div>
-          <p key={data.strDrink}>{data.strDrink}</p>
+          <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
           <img id='imgNombre' src={data.strDrinkThumb} key={data.strDrinkThumb} />
         </div>
       )
@@ -32,6 +35,7 @@ function BusquedaNombre() {
 
   function buttonDelete() {
     setImg('')
+    delIMG.innerHTML = '<img src="/imgs/drink-4188629_1280.jpg" alt="bebida" className="imgIndex" />'
   }
   
   
@@ -51,7 +55,7 @@ function BusquedaNombre() {
         <input id="buttonDelete" type='button' value="Borrar" onClick={buttonDelete} />
         <br />
         <br />
-        <div>
+        <div id='div-img'>
           {img}
         </div>
       </div>
