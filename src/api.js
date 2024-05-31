@@ -12,16 +12,8 @@ async function BuscarLetra(letter) {
 }
 
 
-async function Random() {
-    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-    const bebidas = await response.json();
-    return (bebidas)
-}
-
-
 
 export {
     BuscarNombre,
-    BuscarLetra,
-    Random
+    BuscarLetra
 }

@@ -3,39 +3,46 @@ import '../App.css'
 import './modal.css'
 import Modal from './modal'
 import { Modales } from './modales'
-
 import { BuscarNombre } from '../api'
+import { CocktailCard } from './CocktailCard'
+
 
 function BusquedaNombre() {
-    const [img, setImg] = useState('')
-    let delIMG = document.getElementById('izquierda')
+  const [img, setImg] = useState('')
+  const [data,setData] = useState(null);
+  let delIMG = document.getElementById('izquierda')
 
-    let listImg;
+  let listImg;
   
-    async function buttonOnsubmitHandler(e) {
-      e.preventDefault()
-      
-      delIMG.innerHTML = ''
+  async function buttonOnsubmitHandler(e) {
+    e.preventDefault()
+    delIMG.innerHTML = ''
 
-      let nombre = e.target[0].value;
-      let result = await BuscarNombre(nombre)
-      result = await result.drinks
+    let nombre = e.target[0].value;
+    let result = await BuscarNombre(nombre)
+    result = await result.drinks
 
-      listImg = await result.map((data) =>
-        <div>
-          <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
-          <img id='imgNombre' src={data.strDrinkThumb} key={data.strDrinkThumb} />
-        </div>
-      )
-
-
-      setImg(listImg)
-    } 
+    listImg = await result.map((data) =>
+      <div onClick={()=>setData(data)}>
+        <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
+        <img id='imgNombre' onClick={onclick} src={data.strDrinkThumb} key={data.strDrinkThumb} />
+      </div>
+    )
+    setImg(listImg)
+  } 
 
 
-  function buttonDelete() {
+  async function onclick() {
+    console.log('Click correcto')
+  }
+
+
+  function buttonDelete(e) {
+    e.preventDefault()
     setImg('')
     delIMG.innerHTML = '<img src="/imgs/drink-4188629_1280.jpg" alt="bebida" className="imgIndex" />'
+    let inputDel = document.getElementById('inputName')
+    inputDel.value = ''
   }
   
   
@@ -45,16 +52,22 @@ function BusquedaNombre() {
           <div>
             <h3>Nombre de cocktail</h3>
             <label htmlFor="nombre" />
-            <input type='text' placeholder='Nombre' name='nombre' />
+            <input id='inputName' type='text' placeholder='Nombre' name='nombre' />
           </div>
           <br />  
           <div>
-            <input id="buttonFind" type="submit" value="Buscar" />
+            <input id="buttonFind" className='buttonName' type="submit" value="Buscar" />
+            <input id="buttonDelete" className='buttonName' type='button' value="Borrar" onClick={buttonDelete} />
           </div>
         </form>
-        <input id="buttonDelete" type='button' value="Borrar" onClick={buttonDelete} />
         <br />
         <br />
+        {data &&
+          <Modal isOpen={true} onClose={()=>setData(null)}>
+            <h1>{data.strDrink} </h1>
+          </Modal>
+        }
+        
         <div id='div-img'>
           {img}
         </div>

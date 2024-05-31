@@ -1,4 +1,4 @@
-import './modal.css'
+/* import './modal.css'
 
 const Modal = ({isOpen, onClose, children})=> {
 
@@ -10,6 +10,35 @@ const Modal = ({isOpen, onClose, children})=> {
             </div>
         </div>
     )
+}
+
+export default Modal */
+
+
+import './modal.css'
+import PropTypes from 'prop-types';
+
+function Modal({ children, isOpen, onClose }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal">
+      <div className="modal-content">
+        <button onClick={onClose}>Cerrar</button>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
+
+export {
+  Modal
 }
 
 export default Modal
