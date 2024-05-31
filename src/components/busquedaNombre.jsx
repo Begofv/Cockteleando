@@ -9,6 +9,7 @@ import { CocktailCard } from './CocktailCard'
 
 function BusquedaNombre() {
   const [img, setImg] = useState('')
+  const [data,setData] = useState(null);
   let delIMG = document.getElementById('izquierda')
 
   let listImg;
@@ -22,7 +23,7 @@ function BusquedaNombre() {
     result = await result.drinks
 
     listImg = await result.map((data) =>
-      <div>
+      <div onClick={()=>setData(data)}>
         <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
         <img id='imgNombre' onClick={onclick} src={data.strDrinkThumb} key={data.strDrinkThumb} />
       </div>
@@ -61,6 +62,12 @@ function BusquedaNombre() {
         </form>
         <br />
         <br />
+        {data &&
+          <Modal isOpen={true} onClose={()=>setData(null)}>
+            <h1>{data.strDrink} </h1>
+          </Modal>
+        }
+        
         <div id='div-img'>
           {img}
         </div>
