@@ -64,13 +64,31 @@ function BusquedaNombre() {
         <br />
         {data &&
           <Modal isOpen={true} onClose={()=>setData(null)}>
-            <h1>{data.strDrink} </h1>
+            <div className='modal'>
+              <div className='modal-container'>
+                <div className='nombre'>
+                  <h1>{data.strDrink}</h1>
+                </div>
+                <div className='instructions'>
+                  <p>{data.strInstructions}</p>
+                </div>
+                <div className='ingredientes'>
+                  <p>{data.strIngredient}</p>
+                </div>
+                <div className='imagen'>
+                  <img id="miImagenId" className="miImagenId"
+                  src={data.strDrinkThumb}
+                  alt={data.strDrink}
+                  />
+                </div>
+              </div>
+            </div>
           </Modal>
         }
         
         <div id='div-img'>
           {img}
-        </div>
+        </div>  
       </div>
     )
   }
