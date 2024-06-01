@@ -25,16 +25,12 @@ function BusquedaNombre() {
     listImg = await result.map((data) =>
       <div onClick={()=>setData(data)}>
         <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
-        <img id='imgNombre' onClick={onclick} src={data.strDrinkThumb} key={data.strDrinkThumb} />
+        <img id='imgNombre' src={data.strDrinkThumb} key={data.strDrinkThumb} />
       </div>
     )
     setImg(listImg)
   } 
 
-
-  async function onclick() {
-    console.log('Click correcto')
-  }
 
 
   function buttonDelete(e) {
@@ -62,21 +58,30 @@ function BusquedaNombre() {
         </form>
         <br />
         <br />
+
         {data &&
           <Modal isOpen={true} onClose={()=>setData(null)}>
             <div id="modalNombre">
               <div id="divModalNombre">
-                <h1>{data.strDrink}</h1>
+                <h1 id='h1Modal'>{data.strDrink}</h1>
+                <h4>Category: {data.strCategory}</h4>
                 <p>{data.strInstructions}</p>
-                <h3>Ingredients</h3>
-                <p>{data.strIngredient1}    {data.strMeasure1}</p>
-                <p>{data.strIngredient2}    {data.strMeasure2}</p>
-                <p>{data.strIngredient3}    {data.strMeasure3}</p>
-                <p>{data.strIngredient4}    {data.strMeasure4}</p>
-                <p>{data.strIngredient5}    {data.strMeasure5}</p>
               </div>
-              <div id="divModalIMG">
-                <img src={data.strDrinkThumb} />
+              <div id='modalInferior'>
+                <div id='divModalIngredientes'>
+                  <h3>Ingredients</h3>
+                  <p>{data.strIngredient1}    {data.strMeasure1}</p>
+                  <p>{data.strIngredient2}    {data.strMeasure2}</p>
+                  <p>{data.strIngredient3}    {data.strMeasure3}</p>
+                  <p>{data.strIngredient4}    {data.strMeasure4}</p>
+                  <p>{data.strIngredient5}    {data.strMeasure5}</p>
+                  <p>{data.strIngredient6}    {data.strMeasure6}</p>
+                  <p>{data.strIngredient7}    {data.strMeasure7}</p>
+                  <p>{data.strIngredient8}    {data.strMeasure8}</p>
+                </div>
+                <div id="divModalIMG">
+                  <img src={data.strDrinkThumb} />
+                </div>
               </div>
             </div>
           </Modal>

@@ -18,14 +18,15 @@ function BusquedaLetra() {
   
       if (letra == letraS) {
         setListado('')
+        setLetraS('')
       } else {
         setLetraS(letra)
         let bebidaLetter = await BuscarLetra(letra)
-        bebidaLetter = bebidaLetter.drinks
+        bebidaLetter = await bebidaLetter.drinks
   
-        listItems = bebidaLetter.map((number) =>
+        listItems = await bebidaLetter.map((data) =>
           <div onClick={()=>setData(data)}>
-            <p className='p-letra' onClick={onclick} key={number.strDrink}>{number.strDrink}</p>
+            <p className='p-letra' key={data.strDrink}>{data.strDrink}</p>
           </div>
         )
   
@@ -33,10 +34,7 @@ function BusquedaLetra() {
       }
     }
 
-    async function onclick() {
-      console.log('Click correcto')
-    }
-  
+   
   
     return (
       <div>

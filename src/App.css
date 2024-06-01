@@ -101,8 +101,9 @@ li, h4{
 
 #modalNombre {
   display: flex;
+  flex-direction: column;
   width: 90%;
-  height: 450px;
+  height: min-content;
 }
 
 #divModalNombre {
@@ -110,21 +111,39 @@ li, h4{
   flex-direction: column;
   justify-content: center;
   padding: 0 15px;
-  width: 55%;
 }
 
 #divModalNombre p {
   margin: 2px 0;
 }
 
-#divModalIMG {
-  width: 45%;
-  justify-self: right;
+#modalInferior {
+  display: flex;
+}
+
+#divModalIngredientes {
+  width: 50%;
   align-content: center;
 }
 
+#divModalIngredientes p { 
+  margin: 2px 0;
+}
+
+#divModalIMG {
+  width: 50%;
+}
+
 #divModalIMG img {
-  height: 50%;
   border-radius: 25px;
-  margin-top: 20px;
+  height: 300px;
+  margin-top: 15px;
+}
+
+#h1Modal {
+  margin: 0;
+}
+
+#buttonModal {
+  height: fit-content;
 }
