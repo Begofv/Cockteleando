@@ -52,7 +52,7 @@ function BusquedaNombre() {
           <div>
             <h3>Nombre de cocktail</h3>
             <label htmlFor="nombre" />
-            <input id='inputName' type='text' placeholder='Nombre' name='nombre' />
+            <input id='inputName' type='text' placeholder='Todos' name='nombre' />
           </div>
           <br />  
           <div>
@@ -64,7 +64,21 @@ function BusquedaNombre() {
         <br />
         {data &&
           <Modal isOpen={true} onClose={()=>setData(null)}>
-            <h1>{data.strDrink} </h1>
+            <div id="modalNombre">
+              <div id="divModalNombre">
+                <h1>{data.strDrink}</h1>
+                <p>{data.strInstructions}</p>
+                <h3>Ingredients</h3>
+                <p>{data.strIngredient1}    {data.strMeasure1}</p>
+                <p>{data.strIngredient2}    {data.strMeasure2}</p>
+                <p>{data.strIngredient3}    {data.strMeasure3}</p>
+                <p>{data.strIngredient4}    {data.strMeasure4}</p>
+                <p>{data.strIngredient5}    {data.strMeasure5}</p>
+              </div>
+              <div id="divModalIMG">
+                <img src={data.strDrinkThumb} />
+              </div>
+            </div>
           </Modal>
         }
         

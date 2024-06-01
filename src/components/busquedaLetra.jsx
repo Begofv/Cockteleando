@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../App.css'
 import { Modales } from './modales'
+import Modal from './modal'
+
 
 import {BuscarLetra} from '../api'
 
@@ -8,6 +10,7 @@ import {BuscarLetra} from '../api'
 function BusquedaLetra() {
     const [listado, setListado] = useState('')
     const [letraS, setLetraS] = useState('')
+    const [data,setData] = useState(null);
   
     let listItems;
     async function linkLetter(e) {
@@ -21,11 +24,17 @@ function BusquedaLetra() {
         bebidaLetter = bebidaLetter.drinks
   
         listItems = bebidaLetter.map((number) =>
-          <p className='p-letra' key={number.strDrink}>{number.strDrink}</p>
+          <div onClick={()=>setData(data)}>
+            <p className='p-letra' onClick={onclick} key={number.strDrink}>{number.strDrink}</p>
+          </div>
         )
   
         setListado(listItems)
       }
+    }
+
+    async function onclick() {
+      console.log('Click correcto')
     }
   
   
