@@ -24,7 +24,10 @@ function Modal({ children, isOpen, onClose }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <button id='buttonModal' onClick={onClose}>Cerrar</button>
+        <div id='boton'>
+          <button id='buttonModal' onClick={onClose}>Cerrar</button>
+          {/* <button id='buttonModal' onClick={onFavs}>Favorito</button> */}
+        </div>
         {children}
       </div>
     </div>
