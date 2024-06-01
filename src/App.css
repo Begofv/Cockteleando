@@ -98,3 +98,57 @@ li, h4{
   padding: 2px 15px;
   cursor: pointer;
 }
+
+#modalNombre {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: min-content;
+}
+
+#divModalNombre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+#divModalNombre p {
+  margin: 2px 0;
+}
+
+#modalInferior {
+  display: flex;
+}
+
+#divModalIngredientes {
+  width: 50%;
+  align-content: center;
+}
+
+#divModalIngredientes p { 
+  margin: 2px 0;
+}
+
+#divModalIMG {
+  width: 50%;
+}
+
+#divModalIMG img {
+  border-radius: 25px;
+  height: 300px;
+  margin-top: 15px;
+}
+
+#h1Modal {
+  margin: 0;
+}
+
+#buttonModal {
+  height: fit-content;
+  margin: 10px 0
+}
+
+#buttonFav {
+  margin-top: 25px;
+}
