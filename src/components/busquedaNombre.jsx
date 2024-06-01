@@ -125,7 +125,7 @@ function BusquedaNombre() {
         
         <div id='div-img'>
           {img}
-        </div>
+        </div>  
       </div>
     )
   }
