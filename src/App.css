@@ -148,3 +148,7 @@ li, h4{
   height: fit-content;
   margin: 10px 0
 }
+
+#buttonFav {
+  margin-top: 25px;
+}

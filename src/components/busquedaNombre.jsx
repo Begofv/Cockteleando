@@ -10,7 +10,13 @@ import { CocktailCard } from './CocktailCard'
 function BusquedaNombre() {
   const [img, setImg] = useState('')
   const [data,setData] = useState(null);
+  const [rotuloFav,setRotuloFav] = useState('');
   let delIMG = document.getElementById('izquierda')
+
+  let allFav = localStorage.getItem('favs')
+  if (allFav == null) {
+    localStorage.setItem('favs', '')
+  }
 
   let listImg;
   
@@ -23,14 +29,15 @@ function BusquedaNombre() {
     result = await result.drinks
 
     listImg = await result.map((data) =>
-      <div onClick={()=>setData(data)}>
+      <div onClick={()=>{
+        setData(data)
+        revisar(data)}}>
         <p id='pNombre' key={data.strDrink}>{data.strDrink}</p>
         <img id='imgNombre' src={data.strDrinkThumb} key={data.strDrinkThumb} />
       </div>
     )
     setImg(listImg)
   } 
-
 
 
   function buttonDelete(e) {
@@ -40,7 +47,33 @@ function BusquedaNombre() {
     let inputDel = document.getElementById('inputName')
     inputDel.value = ''
   }
-  
+
+
+  function onFavs(e) {
+    let nameFav = e.target.value
+
+    if (allFav.includes(nameFav)) {
+      allFav = allFav.replace(`${nameFav},`,'')
+      localStorage.setItem('favs', allFav)
+      setRotuloFav('Añadir a favorito')
+    } else {
+      allFav = allFav + `${nameFav},`
+      localStorage.setItem('favs', allFav)
+      setRotuloFav('Quitar a favorito')
+    }
+  }
+
+
+  function revisar(e) {
+    let revisarFav = e.strDrink
+
+    if (allFav.includes(revisarFav)) {
+      setRotuloFav('Quitar a favorito')
+    } else {
+      setRotuloFav('Añadir a favorito')
+    }
+ }
+
   
     return (
       <div>
@@ -60,7 +93,9 @@ function BusquedaNombre() {
         <br />
 
         {data &&
-          <Modal isOpen={true} onClose={()=>setData(null)}>
+          <Modal isOpen={true} onClose={()=> {
+            setData(null)
+            setRotuloFav('Favorito')}}>
             <div id="modalNombre">
               <div id="divModalNombre">
                 <h1 id='h1Modal'>{data.strDrink}</h1>
@@ -78,6 +113,7 @@ function BusquedaNombre() {
                   <p>{data.strIngredient6}    {data.strMeasure6}</p>
                   <p>{data.strIngredient7}    {data.strMeasure7}</p>
                   <p>{data.strIngredient8}    {data.strMeasure8}</p>
+                  <button id='buttonFav' value={data.strDrink} onClick={onFavs}>{rotuloFav}</button>
                 </div>
                 <div id="divModalIMG">
                   <img src={data.strDrinkThumb} />
