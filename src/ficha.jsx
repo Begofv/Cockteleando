@@ -5,7 +5,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <izquierda />    
-    <derecha />
+    <Izquierda />    
+    <Derecha />
   </React.StrictMode>,
 )
