@@ -4,6 +4,7 @@ import { App } from './App.jsx'
 import { BusquedaNombre } from './components/busquedaNombre.jsx'
 import { BusquedaLetra } from './components/busquedaLetra.jsx'
 import { ImgIzquierda } from './components/imgIzquierda.jsx'
+import { Favoritos } from './components/favoritos.jsx'
 import './index.css'
 
 
