@@ -156,3 +156,14 @@ li, h4{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+#favsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#rotuloFavs {
+  font-style: italic;
+  color: rgb(51, 94, 186);
+  margin-top: 50px;
+}

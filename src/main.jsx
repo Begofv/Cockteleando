@@ -20,5 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
     <BusquedaNombre />
     <BusquedaLetra />
+    <Favoritos />
   </React.StrictMode>,
 )

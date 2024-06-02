@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../App.css'
 import { Modales } from './modales'
 import Modal from './modal'
+import { Favoritos } from './favoritos'
 
 import {BuscarLetra} from '../api'
 
