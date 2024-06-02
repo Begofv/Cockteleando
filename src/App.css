@@ -58,11 +58,6 @@ li, h4{
   color:#ffdb9d;
 }
 
-#div-img {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 #imgNombre {
   height: 25rem;
   margin: -15px 15px 35px 15px;
@@ -79,10 +74,13 @@ li, h4{
 .p-letra {
   margin: 0;
   cursor: pointer;
+  color: #ffdb9d;
 }
 
 .a-letra {
   cursor: pointer;
+  color: #ca2b53;
+
 }
 
 #inputName {

@@ -8,7 +8,7 @@ import './App.css'
 
 function App() {
   return (
-    <h1>Cockteleando</h1>
+    <h1>COCKTELEANDO</h1>
   )
 }
 
