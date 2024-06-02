@@ -79,8 +79,9 @@ li, h4{
 
 .a-letra {
   cursor: pointer;
-  color: #ca2b53;
-
+  color: #d54a6c;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 #inputName {
@@ -149,4 +150,20 @@ li, h4{
 
 #buttonFav {
   margin-top: 25px;
+}
+
+#div-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#favsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#rotuloFavs {
+  font-style: italic;
+  color: rgb(51, 94, 186);
+  margin-top: 50px;
 }
