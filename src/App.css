@@ -40,3 +40,130 @@
 .read-the-docs {
   color: #888;
 }
+
+h3{
+  color:#ffdb9d;
+}
+
+p{
+  color:#ffdb9d;
+
+}
+
+a:link {
+  color:#ffdb9d;
+}
+
+li, h4{
+  color:#ffdb9d;
+}
+
+#imgNombre {
+  height: 25rem;
+  margin: -15px 15px 35px 15px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+#div-letra {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+}
+
+.p-letra {
+  margin: 0;
+  cursor: pointer;
+  color: #ffdb9d;
+}
+
+.a-letra {
+  cursor: pointer;
+  color: #d54a6c;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+#inputName {
+  text-align: center;
+  border-radius: 15px;
+  padding: 2px 10px;
+}
+
+.buttonName {
+  font-size: 1.15rem;
+  margin: 0 10px;
+  border-radius: 15px;
+  padding: 2px 15px;
+  cursor: pointer;
+}
+
+#modalNombre {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: min-content;
+}
+
+#divModalNombre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+#divModalNombre p {
+  margin: 2px 0;
+}
+
+#modalInferior {
+  display: flex;
+}
+
+#divModalIngredientes {
+  width: 50%;
+  align-content: center;
+}
+
+#divModalIngredientes p { 
+  margin: 2px 0;
+}
+
+#divModalIMG {
+  width: 50%;
+}
+
+#divModalIMG img {
+  border-radius: 25px;
+  height: 300px;
+  margin-top: 15px;
+}
+
+#h1Modal {
+  margin: 0;
+}
+
+#buttonModal {
+  height: fit-content;
+  margin: 10px 0
+}
+
+#buttonFav {
+  margin-top: 25px;
+}
+
+#div-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#favsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#rotuloFavs {
+  font-style: italic;
+  color: rgb(51, 94, 186);
+  margin-top: 50px;
+}
