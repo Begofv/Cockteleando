@@ -107,7 +107,8 @@ function BusquedaLetra() {
         {data &&
           <Modal isOpen={true} onClose={()=> {
             setData(null)
-            setRotuloFav('Favorito')}}>
+            setRotuloFav('Favorito')
+            window.location.reload()}}>
             <div id="modalNombre">
               <div id="divModalNombre">
                 <h1 id='h1Modal'>{data.strDrink}</h1>

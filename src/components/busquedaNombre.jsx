@@ -41,7 +41,7 @@ function BusquedaNombre() {
 
 
   function buttonDelete(e) {
-    e.preventDefault()
+    window.location.reload()
     setImg('')
     delIMG.innerHTML = '<img src="/imgs/drink-4188629_1280.jpg" alt="bebida" className="imgIndex" />'
     let inputDel = document.getElementById('inputName')
